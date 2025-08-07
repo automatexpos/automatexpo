@@ -5,28 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutomateXpo - AI-Powered Automation Solutions</title>
     <meta name="description" content="Transform your business with cutting-edge AI automation. AutomateXpo delivers intelligent workflow solutions, custom software development, and productivity-boosting AI integrations.">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --accent-color: #06b6d4;
-            --dark-bg: #0f172a;
-            --darker-bg: #020617;
-            --light-text: #f8fafc;
-            --muted-text: #94a3b8;
-            --border-color: #334155;
-            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6);
-            --gradient-2: linear-gradient(135deg, #06b6d4, #3b82f6);
-            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+            /* --- NEW BLUE PALETTE --- */
+            --primary-color: #0056b3;
+            --secondary-color: #004085;
+            --accent-color: #0069d9;
+
+            /* --- LIGHT THEME COLORS --- */
+            --dark-bg: #ffffff;
+            --darker-bg: #f5f7fa;
+            --light-text: #111827;
+            --muted-text: #6b7280;
+            --border-color: #d1d5db;
+
+            /* --- GRADIENTS & SHADOWS --- */
+            --gradient-1: linear-gradient(135deg, #0056b3, #004085);
+            --gradient-2: linear-gradient(135deg, #0069d9, #0056b3);
+            --shadow-glow: 0 0 30px rgba(0, 86, 179, 0.25);
         }
 
         * {
@@ -43,7 +48,7 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
+        /* --- HERO BACKGROUND WITH PROMINENT WATERMARK --- */
         .hero-bg {
             position: fixed;
             top: 0;
@@ -51,21 +56,19 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: var(--darker-bg);
+            background: var(--dark-bg);
         }
 
         .hero-bg::before {
-            content: '';
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 86, 179, 0.20) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 86, 179, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 40% 20%, rgba(0, 86, 179, 0.18) 0%, transparent 42%);
             animation: float 20s ease-in-out infinite;
+            z-index: -1;
         }
 
         @keyframes float {
@@ -73,13 +76,13 @@
             50% { transform: translateY(-20px) rotate(180deg); }
         }
 
-        /* Navigation */
+        /* --- NAVIGATION BAR (WHITE) --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 0;
-            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -94,15 +97,19 @@
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* --- LOGO --- */
+        .logo-img {
+            height: 100px;
+            width: auto;
+            vertical-align: middle;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- NAV LINKS --- */
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -110,15 +117,15 @@
         }
 
         .nav-links a {
-            color: var(--muted-text);
+            color: var(--light-text);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--light-text);
+            color: var(--primary-color);
         }
 
         .nav-links a::after {
@@ -136,7 +143,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -183,22 +190,18 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 40px rgba(0, 86, 179, 0.5);
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Services Section */
-        .services {
+        /* --- SERVICES, TEAM & CONTACT SECTIONS --- */
+        .services,
+        .team,
+        .contact {
             padding: 8rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -221,44 +224,28 @@
             font-size: 1.2rem;
         }
 
-        .services-grid {
+        .services-grid,
+        .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             margin-top: 3rem;
         }
 
-        .service-card {
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.3), rgba(30, 41, 59, 0.5));
+        .service-card,
+        .team-member {
+            background: rgba(255, 255, 255, 0.6);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .service-card:hover {
+        .service-card:hover,
+        .team-member:hover {
             transform: translateY(-10px);
             border-color: var(--primary-color);
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .service-card:hover::before {
-            opacity: 0.1;
+            box-shadow: 0 10px 40px rgba(0, 86, 179, 0.15);
         }
 
         .service-icon {
@@ -266,70 +253,23 @@
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 1.5rem;
         }
 
-        .service-title {
+        .service-title,
+        .member-name {
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: var(--muted-text);
-            line-height: 1.7;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 6rem 2rem;
-            background: rgba(30, 41, 59, 0.3);
-        }
-
-        .team-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: rgba(51, 65, 85, 0.3);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            margin-bottom: 0.5rem;
         }
 
         .member-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-1);
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
+            object-fit: cover;
             margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .member-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            border: 3px solid var(--primary-color);
         }
 
         .member-role {
@@ -338,43 +278,26 @@
             margin-bottom: 1rem;
         }
 
+        .service-description,
         .member-bio {
             color: var(--muted-text);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 8rem 2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+        /* --- CONTACT FORM --- */
         .contact-form {
-            background: rgba(51, 65, 85, 0.2);
+            background: rgba(255, 255, 255, 0.5);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 3rem;
             margin-top: 3rem;
         }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--light-text);
-        }
-
         .form-input,
         .form-textarea {
             width: 100%;
             padding: 1rem;
-            background: rgba(15, 23, 42, 0.5);
+            background: rgba(0, 0, 0, 0.03);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             color: var(--light-text);
@@ -386,12 +309,7 @@
         .form-textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
+            box-shadow: 0 0 10px rgba(0, 86, 179, 0.3);
         }
 
         .form-submit {
@@ -412,17 +330,12 @@
             box-shadow: var(--shadow-glow);
         }
 
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
             background: var(--darker-bg);
             padding: 3rem 2rem;
             text-align: center;
             border-top: 1px solid var(--border-color);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .footer-links {
@@ -442,22 +355,14 @@
             color: var(--primary-color);
         }
 
-        /* Responsive */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        /* Scroll animations */
+        /* --- SCROLL ANIMATIONS --- */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -472,11 +377,13 @@
 </head>
 <body>
     <div class="hero-bg"></div>
-    
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">AutomateXpo</div>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/company_logo.jpg') }}" alt="AutomateXpo" class="logo-img">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -495,123 +402,95 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section id="services" class="services">
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Cutting-edge solutions tailored to accelerate your business growth</p>
-        
+
         <div class="services-grid">
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-robot"></i></div>
                 <h3 class="service-title">AI Workflow Automation</h3>
-                <p class="service-description">
-                    Leverage state-of-the-art AI models to create intelligent workflows that learn and adapt. We integrate GPT, Claude, and custom ML models to automate complex business processes with human-like intelligence.
-                </p>
+                <p class="service-description">Leverage state-of-the-art AI models to create intelligent workflows that learn and adapt. We integrate GPT, Claude, and custom ML models to automate complex business processes with human-like intelligence.</p>
             </div>
 
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-code"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-code"></i></div>
                 <h3 class="service-title">Full-Stack Development</h3>
-                <p class="service-description">
-                    End-to-end development services with Python, Flask, React, and modern frameworks. We build scalable, secure applications that power your automation infrastructure from frontend to backend.
-                </p>
+                <p class="service-description">End-to-end development services with Python, Flask, React, and modern frameworks. We build scalable, secure applications that power your automation infrastructure from frontend to backend.</p>
             </div>
 
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-brain"></i></div>
                 <h3 class="service-title">AI Model Integration</h3>
-                <p class="service-description">
-                    Seamlessly integrate powerful AI models into your existing systems. From natural language processing to computer vision, we connect cutting-edge AI capabilities to your business workflows.
-                </p>
+                <p class="service-description">Seamlessly integrate powerful AI models into your existing systems. From natural language processing to computer vision, we connect cutting-edge AI capabilities to your business workflows.</p>
             </div>
 
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-server"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-server"></i></div>
                 <h3 class="service-title">Python & Flask Solutions</h3>
-                <p class="service-description">
-                    Custom Python applications and Flask APIs designed for high-performance automation. We create robust server solutions that handle complex data processing and real-time automation tasks.
-                </p>
+                <p class="service-description">Custom Python applications and Flask APIs designed for high-performance automation. We create robust server solutions that handle complex data processing and real-time automation tasks.</p>
             </div>
 
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                 <h3 class="service-title">Productivity Optimization</h3>
-                <p class="service-description">
-                    Analyze and optimize your business processes using AI-driven insights. We identify bottlenecks and implement smart automation that increases team productivity by 300-500%.
-                </p>
+                <p class="service-description">Analyze and optimize your business processes using AI-driven insights. We identify bottlenecks and implement smart automation that increases team productivity by 300-500%.</p>
             </div>
 
             <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3 class="service-title">Secure & Scalable Systems</h3>
-                <p class="service-description">
-                    Enterprise-grade security with scalable architecture. Our automation solutions grow with your business while maintaining the highest standards of data protection and compliance.
-                </p>
+                <p class="service-description">Enterprise-grade security with scalable architecture. Our automation solutions grow with your business while maintaining the highest standards of data protection and compliance.</p>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team -->
     <section id="team" class="team">
         <div class="team-container">
             <h2 class="section-title">Leadership Team</h2>
             <p class="section-subtitle">Visionary leaders driving the automation revolution</p>
-            
+
             <div class="team-grid">
                 <div class="team-member fade-in">
                     <img src="{{ url_for('static', filename='images/CEO.jpg') }}" alt="Syed Muhammad Zaki" class="member-avatar">
                     <h3 class="member-name">Syed Muhammad Zaki</h3>
                     <p class="member-role">CEO & Founder</p>
-                    <p class="member-bio">
-                        Visionary entrepreneur with deep expertise in AI automation and business transformation. Passionate about leveraging cutting-edge technology to solve complex business challenges.
-                    </p>
+                    <p class="member-bio">Visionary entrepreneur with deep expertise in AI automation and business transformation.</p>
                 </div>
 
                 <div class="team-member fade-in">
                     <img src="{{ url_for('static', filename='images/CTO.jpg') }}" alt="Maaz Baig" class="member-avatar">
                     <h3 class="member-name">Maaz Baig</h3>
                     <p class="member-role">CTO</p>
-                    <p class="member-bio">
-                        Technical architect specializing in scalable automation systems and AI integration. Leads our technical innovation with expertise in Python, ML frameworks, and cloud architecture.
-                    </p>
+                    <p class="member-bio">Technical architect specializing in scalable automation systems and AI integration.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <h2 class="section-title">Schedule a Consultation</h2>
         <p class="section-subtitle">Ready to automate your success? Let's discuss your project</p>
-        
+
         <form class="contact-form fade-in" id="consultationForm">
             <div class="form-group">
                 <label class="form-label" for="name">Full Name</label>
                 <input type="text" id="name" class="form-input" required placeholder="John Doe">
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="email">Email Address</label>
                 <input type="email" id="email" class="form-input" required placeholder="john@company.com">
             </div>
-            
+
             <div class="form-group">
                 <label class="form-label" for="topic">Project Brief</label>
-                <textarea id="topic" class="form-textarea" required placeholder="Tell us about your automation needs, current challenges, and what you'd like to achieve..."></textarea>
+                <textarea id="topic" class="form-textarea" required placeholder="Tell us about your automation needs..."></textarea>
             </div>
-            
+
             <button type="submit" class="form-submit">
                 <i class="fas fa-calendar-plus"></i> Schedule Consultation
             </button>
@@ -632,76 +511,49 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        /* Smooth scrolling */
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = document.querySelector(anchor.getAttribute('href'));
+                target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        /* Scroll animations */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form submission
-        // Replace the form submission section with this:
-        document.getElementById('consultationForm').addEventListener('submit', async function(e) {
+        /* Form submission */
+        document.getElementById('consultationForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
-            const formData = {
+            const data = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 topic: document.getElementById('topic').value
             };
-            
             try {
-                const response = await fetch('/api/consultation', {
+                const res = await fetch('/api/consultation', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
                 });
-                
-                const result = await response.json();
-                
-                if (result.status === 'success') {
-                    alert(`Thank you, ${formData.name}! Your consultation request has been received. We'll contact you at ${formData.email} within 24 hours.`);
+                const json = await res.json();
+                if (json.status === 'success') {
+                    alert(`Thank you, ${data.name}! We'll contact you at ${data.email} within 24 hours.`);
                     this.reset();
                 }
-            } catch (error) {
-                console.error('Error:', error);
+            } catch {
                 alert('Error submitting form. Please try again.');
             }
         });
 
-        // Add subtle parallax effect
+        /* Parallax background */
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-bg');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
+            const offset = window.pageYOffset * 0.5;
+            document.querySelector('.hero-bg').style.transform = `translateY(${offset}px)`;
         });
     </script>
 </body>
