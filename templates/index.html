@@ -16,366 +16,6 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
-    <!-- <style>
-        :root {
-            /* --- NEW BLUE PALETTE --- */
-            --primary-color: #0056b3;
-            --secondary-color: #004085;
-            --accent-color: #0069d9;
-
-            /* --- LIGHT THEME COLORS --- */
-            --dark-bg: #ffffff;
-            --darker-bg: #f5f7fa;
-            --light-text: #111827;
-            --muted-text: #6b7280;
-            --border-color: #d1d5db;
-
-            /* --- GRADIENTS & SHADOWS --- */
-            --gradient-1: linear-gradient(135deg, #0056b3, #004085);
-            --gradient-2: linear-gradient(135deg, #0069d9, #0056b3);
-            --shadow-glow: 0 0 30px rgba(0, 86, 179, 0.25);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--light-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- HERO BACKGROUND WITH PROMINENT WATERMARK --- */
-        .hero-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: var(--dark-bg);
-        }
-
-        .hero-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(0, 86, 179, 0.20) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 86, 179, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 40% 20%, rgba(0, 86, 179, 0.18) 0%, transparent 42%);
-            animation: float 20s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* --- NAVIGATION BAR (WHITE) --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        /* --- LOGO --- */
-        .logo-img {
-            height: 100px;
-            width: auto;
-            vertical-align: middle;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        /* --- NAV LINKS --- */
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            color: var(--muted-text);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient-1);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-glow);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(0, 86, 179, 0.5);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- SERVICES, TEAM & CONTACT SECTIONS --- */
-        .services,
-        .team,
-        .contact {
-            padding: 8rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--muted-text);
-            margin-bottom: 4rem;
-            font-size: 1.2rem;
-        }
-
-        .services-grid,
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card,
-        .team-member {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover,
-        .team-member:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 40px rgba(0, 86, 179, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-title,
-        .member-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            border: 3px solid var(--primary-color);
-        }
-
-        .member-role {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .service-description,
-        .member-bio {
-            color: var(--muted-text);
-            line-height: 1.7;
-        }
-
-        /* --- CONTACT FORM --- */
-        .contact-form {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: 3rem;
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            color: var(--light-text);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(0, 86, 179, 0.3);
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--gradient-1);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--darker-bg);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            color: var(--muted-text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* --- SCROLL ANIMATIONS --- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style> -->
 </head>
 <body>
     <div class="hero-bg"></div>
@@ -453,6 +93,7 @@
         <h2 class="section-title">Our Solutions</h2>
         <p class="section-subtitle">Purpose-built automation tools to give your business a competitive edge</p>
 
+        <!-- ...existing code... -->
         <div class="services-grid">
             <!-- Instagram Manager Card -->
             <div class="service-card fade-in">
@@ -470,9 +111,41 @@
                     Launch Instagram Manager <i class="fas fa-arrow-right"></i>
                 </a>
 
+                <!-- Pricing Plans for Instagram Manager -->
+                <div class="pricing-container" style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+                    <!-- Trial -->
+                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card" 
+                    style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#fdfbfb,#ebedee);
+                            border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
+                            transition:transform 0.3s ease;text-decoration:none;color:inherit;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;color:#333;">Trial</h4>
+                        <p style="font-size:1.5rem;font-weight:800;color:#4CAF50;">Free</p>
+                        <p style="font-size:0.9rem;color:#555;">Up to 7 posts</p>
+                    </a>
+                    <!-- Standard -->
+                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card"
+                    style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#89f7fe,#66a6ff);
+                            border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
+                            transition:transform 0.3s ease;text-decoration:none;color:white;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;">Standard</h4>
+                        <p style="font-size:1.5rem;font-weight:800;">$30</p>
+                        <p style="font-size:0.9rem;">60 posts/month</p>
+                    </a>
+                    <!-- Premium -->
+                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card"
+                    style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#f7971e,#ffd200);
+                            border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
+                            transition:transform 0.3s ease;text-decoration:none;color:white;">
+                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;">Premium</h4>
+                        <p style="font-size:1.5rem;font-weight:800;">$50</p>
+                        <p style="font-size:0.9rem;">120 posts/month</p>
+                    </a>
+                </div>
+            </div>
+
             <!-- Expo Store Card -->
             <div class="service-card fade-in">
-                <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                <div class="service-icon"><i class="fas fa-store"></i></div>
                 <h3 class="service-title">Sell with us</h3>
                 <p class="service-description">
                     Empower your small business by listing products on our marketplace.
@@ -486,43 +159,31 @@
                     Launch Xpo Store <i class="fas fa-arrow-right"></i>
                 </a>
 
-                <!-- Pricing Plans -->
+                <!-- Pricing Plans for Xpo Store -->
                 <div class="pricing-container" style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-                    
-                    <!-- Trial -->
-                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card" 
+                    <!-- Free -->
+                    <a href="https://automatexpo-store.vercel.app" target="_blank" class="pricing-card" 
                     style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#fdfbfb,#ebedee);
                             border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
                             transition:transform 0.3s ease;text-decoration:none;color:inherit;">
-                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;color:#333;">Trial</h4>
-                        <p style="font-size:1.5rem;font-weight:800;color:#4CAF50;">Free</p>
-                        <p style="font-size:0.9rem;color:#555;">Up to 7 posts</p>
+                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;color:#333;">Free</h4>
+                        <p style="font-size:1.5rem;font-weight:800;color:#4CAF50;">1 Month</p>
+                        <p style="font-size:0.9rem;color:#555;">No commission for first month</p>
                     </a>
-
                     <!-- Standard -->
-                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card"
+                    <a href="https://automatexpo-store.vercel.app" target="_blank" class="pricing-card"
                     style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#89f7fe,#66a6ff);
                             border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
                             transition:transform 0.3s ease;text-decoration:none;color:white;">
                         <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;">Standard</h4>
-                        <p style="font-size:1.5rem;font-weight:800;">$30</p>
-                        <p style="font-size:0.9rem;">60 posts/month</p>
+                        <p style="font-size:1.5rem;font-weight:800;">2% Commission</p>
+                        <p style="font-size:0.9rem;">Per sale after free month</p>
                     </a>
-
-                    <!-- Premium -->
-                    <a href="https://automatexpo-ig.vercel.app/login" target="_blank" class="pricing-card"
-                    style="flex:1;min-width:200px;max-width:250px;background:linear-gradient(135deg,#f7971e,#ffd200);
-                            border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.1);
-                            transition:transform 0.3s ease;text-decoration:none;color:white;">
-                        <h4 style="margin-bottom:0.5rem;font-size:1.2rem;font-weight:700;">Premium</h4>
-                        <p style="font-size:1.5rem;font-weight:800;">$50</p>
-                        <p style="font-size:0.9rem;">120 posts/month</p>
-                    </a>
-
                 </div>
             </div>
         </div>
-    </section>
+        <!-- ...existing code... -->    
+</section>
 
     <style>
         .pricing-card:hover {
